@@ -19,5 +19,5 @@ docker-run:
 docker-stop:
 	docker-compose down
 
-docker-rm-image:
-	docker rmi docu-mentor-app
+docker-clean:
+	docker-compose down --rmi all --volumes --remove-orphans
