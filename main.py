@@ -19,7 +19,7 @@ def process_file():
   for file in st.session_state["file_uploader"]:
     # Store the file at tem location
     # of your system to feed to our vector storage.
-    with tempfile.NamedTemporaryFile(delete=False) as tf:
+    with tempfile.NamedTemporaryFile(delete=False, dir="/app") as tf:
       tf.write(file.getbuffer())
       file_path = tf.name
 
