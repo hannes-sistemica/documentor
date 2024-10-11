@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  chroma:
+    image: chroma:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - CHROMA_ENV=development
+    volumes:
+      - chroma_data:/data
+
+volumes:
+  chroma_data:
