@@ -1,3 +1,4 @@
+import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores.utils import filter_complex_metadata
 from langchain_community.document_loaders import PyPDFLoader
@@ -18,6 +19,10 @@ class ChunkVectorStore:
     return chunks
 
   def store_to_vector_database(self, chunks):
+    connection_string = (
+        f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}"
+        f"@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}"
+    )
     return pgvector.PGVector.from_documents(
         documents=chunks,
         embedding=fastembed.FastEmbedEmbeddings(),
