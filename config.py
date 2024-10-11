@@ -4,9 +4,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Config:
-    LLM_PROVIDER = os.getenv("LLM_PROVIDER", "ollama")
-    OLLAMA_HOST_URL = os.getenv("OLLAMA_HOST_URL", "http://host.docker.internal:11434")
-    DEFAULT_MODEL = os.getenv("DEFAULT_MODEL", "mistral")
+    LLM_PROVIDER = os.getenv("LLM_PROVIDER")
+    OLLAMA_HOST_URL = os.getenv("OLLAMA_HOST_URL")
+    DEFAULT_MODEL = os.getenv("DEFAULT_MODEL")
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
     @classmethod
