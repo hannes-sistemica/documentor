@@ -20,7 +20,7 @@ Here's what you need to install the software and how to install them:
 - Python's venv module (for creating virtual environments)
 ```
 
-### Development Setup
+### Local Development Setup
 
 1. **Clone the repository**:
    ```bash
@@ -28,61 +28,52 @@ Here's what you need to install the software and how to install them:
    cd <repository-directory>
    ```
 
-2. **Create a virtual environment**:
+2. **Install dependencies and set up the virtual environment**:
    ```bash
-   python3 -m venv venv
+   make install-local
    ```
 
-3. **Activate the virtual environment**:
-   - On macOS and Linux:
-     ```bash
-     source venv/bin/activate
-     ```
-   - On Windows:
-     ```bash
-     .\venv\Scripts\activate
-     ```
-
-4. **Install the required packages**:
+3. **Start the local database**:
    ```bash
-   pip install -r requirements.txt
+   make db-start-local
    ```
 
-5. **Set the environment for local development**:
+4. **Run the application locally**:
    ```bash
-   make set-env-local
+   make run-local
    ```
 
-6. **Start the database**:
+5. **To stop the local database**:
    ```bash
-   make start-db
+   make db-stop-local
    ```
 
-6. **Run the application locally**:
+### Docker Setup
+
+To run the application in Docker:
+
+1. **Build the Docker image**:
    ```bash
-   make run
+   make docker-build
    ```
 
-7. **Stop the database**:
+2. **Start the application and database in Docker**:
    ```bash
-   make stop-db
+   make docker-run
+   ```
+
+3. **To stop the Docker containers**:
+   ```bash
+   make docker-stop
    ```
 
 ### Ollama Setup
 
-To use the Ollama LLM provider, ensure that you have Ollama running with the corresponding models. You can configure the host URL and default model in the `.env` files.
+To use the Ollama LLM provider, ensure that you have Ollama running with the corresponding models. You can configure the host URL and default model in the `.env.local` and `.env.docker` files.
 
-1. **Set the environment for Docker**:
-   ```bash
-   make set-env-docker
-   ```
+### Environment Configuration
 
-2. **Start the application and database**:
-   ```bash
-   make run-docker
-   ```
+- For local development, edit `.env.local`
+- For Docker deployment, edit `.env.docker`
 
-2. **Stop the application and database**:
-   ```bash
-   make stop-docker
-   ```
+The appropriate environment file will be copied to `.env` when running the application using the provided make commands.
