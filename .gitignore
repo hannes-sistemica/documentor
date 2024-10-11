@@ -1,0 +1,4 @@
+.aider*
+.venv
+init.sql
+.env
