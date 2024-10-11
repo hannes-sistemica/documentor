@@ -26,6 +26,9 @@ COPY --from=builder /usr/local/bin /usr/local/bin
 # Copy the current directory contents into the container at /app
 COPY . .
 
+# Copy the .env.docker file into the container
+COPY .env.docker .env
+
 # Make port 8501 available to the world outside this container
 EXPOSE 8501
 
