@@ -1,9 +1,9 @@
-import os
 from chunk_vector_store import ChunkVectorStore as cvs
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.schema.output_parser import StrOutputParser
 from langchain.prompts import PromptTemplate
 from langchain_community.chat_models import ChatOllama, ChatOpenAI
+from config import Config
 
 class Rag:
 
@@ -23,17 +23,13 @@ class Rag:
       Answer: [/INST]
       """
     )
-    llm_provider = os.getenv("LLM_PROVIDER", "ollama")
-    if llm_provider == "ollama":
-        ollama_host = os.getenv("OLLAMA_HOST_URL", "http://host.docker.internal:11434")
-        self.model = ChatOllama(
-            model=os.getenv("DEFAULT_MODEL", "mistral"),
-            base_url=ollama_host
-        )
-    elif llm_provider == "openai":
-        self.model = ChatOpenAI(model=os.getenv("DEFAULT_MODEL", "gpt-3.5-turbo"))
+    llm_config = Config.get_llm_config()
+    if Config.LLM_PROVIDER == "ollama":
+        self.model = ChatOllama(**llm_config)
+    elif Config.LLM_PROVIDER == "openai":
+        self.model = ChatOpenAI(**llm_config)
     else:
-        raise ValueError(f"Unsupported LLM provider: {llm_provider}")
+        raise ValueError(f"Unsupported LLM provider: {Config.LLM_PROVIDER}")
 
   def set_retriever(self):
     self.retriever = self.vector_store.as_retriever(
