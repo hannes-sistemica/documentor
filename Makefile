@@ -7,7 +7,8 @@ install:
 run:
 	source .venv/bin/activate && \
 	pip install -r requirements.txt && \
-	python -c "from dotenv import load_dotenv; load_dotenv(); import os; print('LLM_PROVIDER:', os.getenv('LLM_PROVIDER'))" && \
+	set -a && source .env && set +a && \
+	python -c "import os; print('LLM_PROVIDER:', os.getenv('LLM_PROVIDER'))" && \
 	streamlit run main.py
 
 db-start:
