@@ -21,3 +21,6 @@ docker-run:
 
 docker-stop:
 	docker-compose down
+
+docker-rm-image:
+	docker rmi $(docker images -q <your-image-name>)
