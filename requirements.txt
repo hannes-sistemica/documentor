@@ -3,3 +3,4 @@ langchain
 langchain_community
 psycopg2-binary
 pypdf
+fastembed
