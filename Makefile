@@ -22,5 +22,3 @@ docker-stop:
 docker-remove-image:
 	docker rmi docu-mentor-app
 
-docker-clean:
-	docker-compose down --rmi local --volumes --remove-orphans
