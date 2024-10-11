@@ -1,5 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project-specific
 .aider*
-.venv
 init.sql
-.env.env
-venv
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Docker
+.docker/
+
+# Streamlit
+.streamlit/
+
+# Temporary files
+*.tmp
