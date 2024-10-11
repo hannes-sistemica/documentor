@@ -25,5 +25,7 @@ services:
       - db
     env_file:
       - .env.docker
+    environment:
+      - OLLAMA_HOST_URL=http://host.docker.internal:11434
     extra_hosts:
       - "host.docker.internal:host-gateway"
