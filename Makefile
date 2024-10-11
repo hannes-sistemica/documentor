@@ -7,7 +7,7 @@ install:
 run:
 	source .venv/bin/activate && \
 	pip install -r requirements.txt && \
-	set -a && source .env && set +a && \
+	(grep -v '^#' .env | xargs -I {} echo "export {}" | source /dev/stdin) && \
 	python -c "import os; print('LLM_PROVIDER:', os.getenv('LLM_PROVIDER'))" && \
 	streamlit run main.py
 
