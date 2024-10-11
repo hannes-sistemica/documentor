@@ -10,7 +10,7 @@ class ChunkVectorStore:
 
   def __init__(self) -> None:
     # Determine which .env file to load
-    env_file = ".env.docker" if os.getenv("ENV") == "docker" else ".env.local"
+    env_file = ".env" if os.getenv("ENV") == "docker" else ".env.local"
     load_dotenv(env_file)
 
   def split_into_chunks(self, file_path: str):
