@@ -2,3 +2,4 @@
 .venv
 init.sql
 .env.env
+venv
