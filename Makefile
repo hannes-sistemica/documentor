@@ -1,10 +1,14 @@
-.PHONY: up down logs run start-db stop-db run-docker stop-docker
+run:
+	python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt && streamlit run main.py
 
-up:
-	docker-compose up -d
+start-db:
+	docker-compose up -d db
 
-down:
+stop-db:
 	docker-compose down
 
-logs:
-	docker-compose logs -f
+run-docker:
+	docker-compose up --build
+
+stop-docker:
+	docker-compose down
