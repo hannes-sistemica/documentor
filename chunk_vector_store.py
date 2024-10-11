@@ -9,7 +9,7 @@ from langchain_community.embeddings import fastembed;
 class ChunkVectorStore:
 
   def __init__(self) -> None:
-    load_dotenv(".env")
+    load_dotenv()
 
   def split_into_chunks(self, file_path: str):
     doc = PyPDFLoader(file_path).load()
