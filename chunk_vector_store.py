@@ -26,6 +26,6 @@ class ChunkVectorStore:
     return pgvector.PGVector.from_documents(
         documents=chunks,
         embedding=fastembed.FastEmbedEmbeddings(),
-        connection_string="postgresql://testuser:testpwd@db:5432/vectordb"
+        connection_string=connection_string
     )
 
