@@ -48,7 +48,12 @@ Here's what you need to install the software and how to install them:
    pip install -r requirements.txt
    ```
 
-5. **Start the database**:
+5. **Set the environment for local development**:
+   ```bash
+   make set-env-local
+   ```
+
+6. **Start the database**:
    ```bash
    make start-db
    ```
@@ -65,7 +70,12 @@ Here's what you need to install the software and how to install them:
 
 ### Running with Docker Compose
 
-1. **Start the application and database**:
+1. **Set the environment for Docker**:
+   ```bash
+   make set-env-docker
+   ```
+
+2. **Start the application and database**:
    ```bash
    make run-docker
    ```

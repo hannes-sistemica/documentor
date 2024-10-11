@@ -1,3 +1,9 @@
+set-env-local:
+	cp .env.local .env
+
+set-env-docker:
+	cp .env.docker .env
+
 run:
 	python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt && streamlit run main.py
 
