@@ -11,6 +11,8 @@ services:
       - POSTGRES_USER=testuser
       - POSTGRES_PASSWORD=testpwd
       - POSTGRES_HOST_AUTH_METHOD=trust
+    environment:
+      - ENV=docker
     volumes:
      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 

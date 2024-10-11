@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores.utils import filter_complex_metadata
 from langchain_community.document_loaders import PyPDFLoader
@@ -8,7 +9,9 @@ from langchain_community.embeddings import fastembed;
 class ChunkVectorStore:
 
   def __init__(self) -> None:
-    pass
+    # Determine which .env file to load
+    env_file = ".env.local" if os.getenv("ENV") == "local" else ".env.docker"
+    load_dotenv(env_file)
 
   def split_into_chunks(self, file_path: str):
     doc = PyPDFLoader(file_path).load()
