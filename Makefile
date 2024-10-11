@@ -1,4 +1,4 @@
-.PHONY: up down logs
+.PHONY: up down logs run start-db stop-db run-docker stop-docker
 
 up:
 	docker-compose up -d

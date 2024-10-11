@@ -48,7 +48,29 @@ Here's what you need to install the software and how to install them:
    pip install -r requirements.txt
    ```
 
-5. **Run the Streamlit application**:
+5. **Start the database**:
    ```bash
-   streamlit run main.py
+   make start-db
+   ```
+
+6. **Run the application locally**:
+   ```bash
+   make run
+   ```
+
+7. **Stop the database**:
+   ```bash
+   make stop-db
+   ```
+
+### Running with Docker Compose
+
+1. **Start the application and database**:
+   ```bash
+   make run-docker
+   ```
+
+2. **Stop the application and database**:
+   ```bash
+   make stop-docker
    ```
