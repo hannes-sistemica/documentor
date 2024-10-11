@@ -23,4 +23,4 @@ docker-stop:
 	docker-compose down
 
 docker-rm-image:
-	docker rmi $(docker images -q <your-image-name>)
+	docker rmi $(docker images -q docu-mentor-app)
