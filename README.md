@@ -17,4 +17,38 @@ These instructions will guide you through setting up DocuMentor on your local ma
 Here's what you need to install the software and how to install them:
 
 - Python 3.8 or higher
-- Pipenv (for dependency management)
+- Python's venv module (for creating virtual environments)
+```
+
+### Development Setup
+
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd <repository-directory>
+   ```
+
+2. **Create a virtual environment**:
+   ```bash
+   python3 -m venv venv
+   ```
+
+3. **Activate the virtual environment**:
+   - On macOS and Linux:
+     ```bash
+     source venv/bin/activate
+     ```
+   - On Windows:
+     ```bash
+     .\venv\Scripts\activate
+     ```
+
+4. **Install the required packages**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. **Run the Streamlit application**:
+   ```bash
+   streamlit run main.py
+   ```
