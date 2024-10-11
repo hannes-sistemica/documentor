@@ -1,7 +1,17 @@
 version: '3.8'
 
 services:
-  chroma:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: chroma_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    command: ["postgres", "-c", "shared_preload_libraries=pgvector"]
     build:
       context: .
       dockerfile: Dockerfile
@@ -12,5 +22,9 @@ services:
     volumes:
       - chroma_data:/data
 
+    depends_on:
+      - postgres
+
 volumes:
+  pg_data:
   chroma_data:
