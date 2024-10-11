@@ -68,7 +68,9 @@ Here's what you need to install the software and how to install them:
    make stop-db
    ```
 
-### Running with Docker Compose
+### Ollama Setup
+
+To use the Ollama LLM provider, ensure that you have Ollama running with the corresponding models. You can configure the host URL and default model in the `.env` files.
 
 1. **Set the environment for Docker**:
    ```bash
