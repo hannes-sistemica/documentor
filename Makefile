@@ -4,17 +4,20 @@ set-env-local:
 set-env-docker:
 	cp .env.docker .env
 
-run:
-	python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt && streamlit run main.py
+install:
+	python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
 
-start-db:
+run:
+	source .venv/bin/activate && pip install -r requirements.txt && streamlit run main.py
+
+db-start:
 	docker-compose up -d db
 
-stop-db:
+db-stop:
 	docker-compose down
 
-run-docker:
+docker-run:
 	docker-compose up --build
 
-stop-docker:
+docker-stop:
 	docker-compose down
