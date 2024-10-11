@@ -27,7 +27,7 @@ class Rag:
     if llm_provider == "ollama":
         self.model = ChatOllama(
             model=os.getenv("DEFAULT_MODEL", "mistral"),
-            host_url=os.getenv("OLLAMA_HOST_URL", "http://ollama-host:8000")
+            host_url=os.getenv("OLLAMA_HOST_URL", "http://db:8000")
         )
     elif llm_provider == "openai":
         self.model = ChatOpenAI(model=os.getenv("DEFAULT_MODEL", "gpt-3.5-turbo"))
