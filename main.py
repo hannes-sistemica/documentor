@@ -1,5 +1,6 @@
 import streamlit as st
 import tempfile
+from chunk_vector_store import ChunkVectorStore
 import os
 
 # Import Rag classes.
