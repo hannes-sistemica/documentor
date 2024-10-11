@@ -25,9 +25,10 @@ class Rag:
     )
     llm_provider = os.getenv("LLM_PROVIDER", "ollama")
     if llm_provider == "ollama":
+        ollama_host = os.getenv("OLLAMA_HOST_URL", "http://host.docker.internal:11434")
         self.model = ChatOllama(
             model=os.getenv("DEFAULT_MODEL", "mistral"),
-            host_url=os.getenv("OLLAMA_HOST_URL", "http://db:8000")
+            base_url=ollama_host
         )
     elif llm_provider == "openai":
         self.model = ChatOpenAI(model=os.getenv("DEFAULT_MODEL", "gpt-3.5-turbo"))
